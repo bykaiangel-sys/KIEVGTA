@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIEV GTA — MTA Server</title>
+<meta name="description" content="KIEV GTA — атмосферний український MTA сервер. Приєднуйся до гри!">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{--yellow:#ffd21c;--blue:#1677ff;--bg:#07090d;--card:#10141c;--muted:#9ca5b5;--line:#202633}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:45px 45px}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(7,9,13,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-size:24px;font-weight:900;letter-spacing:-1px}.logo span{color:var(--yellow)}
+.navlinks{display:flex;gap:28px}.navlinks a{color:#cbd1db;text-decoration:none;font-size:14px;font-weight:600}.navlinks a:hover{color:var(--yellow)}
+.hero{min-height:100vh;padding:150px 6% 80px;display:flex;align-items:center;position:relative;background:radial-gradient(circle at 75% 45%,rgba(22,119,255,.18),transparent 35%),radial-gradient(circle at 20% 80%,rgba(255,210,28,.10),transparent 30%)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(7,9,13,.82) 42%,rgba(7,9,13,.25) 100%);pointer-events:none}
+.hero-content{max-width:780px;position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,210,28,.35);background:rgba(255,210,28,.08);padding:8px 13px;border-radius:99px;color:var(--yellow);font-size:12px;font-weight:700;margin-bottom:24px}
+.dot{width:7px;height:7px;border-radius:50%;background:#39e58c;box-shadow:0 0 12px #39e58c}
+h1{font-size:clamp(64px,10vw,140px);line-height:.82;letter-spacing:-7px;font-weight:900;margin-bottom:25px}
+h1 .yellow{color:var(--yellow)} h1 .blue{color:var(--blue)}
+.subtitle{font-size:clamp(18px,2.2vw,26px);color:#d8dde6;max-width:620px;line-height:1.5;margin-bottom:36px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}.btn{padding:16px 25px;border-radius:10px;text-decoration:none;font-weight:800;font-size:15px;display:inline-flex;align-items:center;gap:10px;transition:.2s}.primary{background:var(--yellow);color:#090a0d}.primary:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(255,210,28,.2)}.secondary{border:1px solid #303746;color:#fff;background:#11151d}.secondary:hover{border-color:#596273}
+.hero-card{position:absolute;right:6%;bottom:14%;z-index:2;width:310px;padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(16,20,28,.78);backdrop-filter:blur(14px);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.server-title{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px}.server-ip{font-size:19px;font-weight:800;margin:8px 0 17px}.online{display:flex;justify-content:space-between;font-size:13px;color:#b8c0cd}.online strong{color:#39e58c}
+section{padding:100px 6%;position:relative}.section-head{max-width:720px;margin-bottom:45px}.eyebrow{color:var(--yellow);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}.section-title{font-size:clamp(34px,5vw,58px);letter-spacing:-2px;margin-bottom:14px}.section-text{color:var(--muted);line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,#111620,#0c1017);border:1px solid var(--line);padding:28px;border-radius:18px;min-height:220px}.icon{font-size:30px;margin-bottom:28px}.card h3{font-size:20px;margin-bottom:10px}.card p{color:var(--muted);line-height:1.65;font-size:14px}
+.cta{margin:30px 6% 100px;padding:60px;border-radius:25px;border:1px solid rgba(255,210,28,.2);background:linear-gradient(120deg,rgba(255,210,28,.10),rgba(22,119,255,.08));display:flex;align-items:center;justify-content:space-between;gap:30px}.cta h2{font-size:clamp(30px,4vw,50px);letter-spacing:-2px}.cta p{color:var(--muted);margin-top:10px}
+footer{padding:30px 6%;border-top:1px solid var(--line);color:#727b8a;font-size:13px;display:flex;justify-content:space-between}
+@media(max-width:850px){.navlinks{display:none}.hero{padding-top:125px}.hero-card{position:relative;right:auto;bottom:auto;margin-top:45px;width:100%}.hero{display:block}.cards{grid-template-columns:1fr}.cta{margin-left:4%;margin-right:4%;padding:35px;display:block}.cta .btn{margin-top:25px}h1{letter-spacing:-4px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">KIEV <span>GTA</span></div>
+  <div class="navlinks">
+    <a href="#about">Про сервер</a><a href="#features">Можливості</a><a href="#play">Як грати</a>
+  </div>
+  <a class="btn primary" href="#play" style="padding:10px 16px;font-size:13px">Грати</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="badge"><span class="dot"></span> MTA:SA • УКРАЇНСЬКИЙ ПРОЄКТ</div>
+    <h1>KIEV <span class="yellow">G</span><span class="blue">T</span><span class="yellow">A</span></h1>
+    <p class="subtitle">Твій Київ. Твої правила. Стань частиною міста, де кожне рішення змінює твою історію.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#play">▶ &nbsp;Почати гру</a>
+      <a class="btn secondary" href="#about">Дізнатися більше ↓</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="server-title">Статус сервера</div>
+    <div class="server-ip">play.kiev-gta.example:22003</div>
+    <div class="online"><span>● Сервер онлайн</span><strong>ПІДКЛЮЧЕНО</strong></div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="section-head">
+    <div class="eyebrow">Про KIEV GTA</div>
+    <h2 class="section-title">Місто, яке живе разом із тобою.</h2>
+    <p class="section-text">KIEV GTA — концепт українського MTA:SA сервера з власною атмосферою, розвитком персонажа та активним міським життям.</p>
+  </div>
+  <div class="cards" id="features">
+    <article class="card"><div class="icon">🚘</div><h3>Автомобілі</h3><p>Катайтеся містом, збирайте автопарк та створюйте власний стиль.</p></article>
+    <article class="card"><div class="icon">🏙️</div><h3>Велике місто</h3><p>Досліджуйте знайомі мотиви Києва та знаходьте нові місця для пригод.</p></article>
+    <article class="card"><div class="icon">👥</div><h3>RolePlay</h3><p>Створіть персонажа, оберіть шлях і взаємодійте з іншими гравцями.</p></article>
+  </div>
+</section>
+
+<section id="play">
+  <div class="section-head">
+    <div class="eyebrow">Як почати</div>
+    <h2 class="section-title">Три кроки до гри.</h2>
+    <p class="section-text">Встановіть Multi Theft Auto, введіть актуальну адресу сервера та приєднуйтесь до KIEV GTA.</p>
+  </div>
+  <div class="cards">
+    <article class="card"><div class="icon">01</div><h3>Встанови MTA</h3><p>Завантаж та встанови Multi Theft Auto: San Andreas на свій ПК.</p></article>
+    <article class="card"><div class="icon">02</div><h3>Знайди сервер</h3><p>Відкрий MTA та введи IP-адресу свого KIEV GTA сервера.</p></article>
+    <article class="card"><div class="icon">03</div><h3>Грай</h3><p>Створи персонажа, знайомся з містом та починай свою історію.</p></article>
+  </div>
+</section>
+
+<div class="cta">
+  <div><h2>Готовий увійти в місто?</h2><p>Приєднуйся до KIEV GTA та створи власну історію.</p></div>
+  <a class="btn primary" href="mtasa://play.kiev-gta.example:22003">ПІДКЛЮЧИТИСЯ →</a>
+</div>
+
+<footer><span>© 2026 KIEV GTA</span><span>MTA:SA Community Project</span></footer>
+</body>
+</html>
