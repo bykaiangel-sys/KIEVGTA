@@ -32,6 +32,22 @@ section{padding:100px 6%;position:relative}.section-head{max-width:720px;margin-
 footer{padding:30px 6%;border-top:1px solid var(--line);color:#727b8a;font-size:13px;display:flex;justify-content:space-between}
 @media(max-width:850px){.navlinks{display:none}.hero{padding-top:125px}.hero-card{position:relative;right:auto;bottom:auto;margin-top:45px;width:100%}.hero{display:block}.cards{grid-template-columns:1fr}.cta{margin-left:4%;margin-right:4%;padding:35px;display:block}.cta .btn{margin-top:25px}h1{letter-spacing:-4px}}
 </style>
+</head><style>
+.fade {
+    animation: появa 1.5s ease;
+}
+
+@keyframes появa {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
 </div>
 </div>
 </body>
@@ -93,6 +109,8 @@ footer{padding:30px 6%;border-top:1px solid var(--line);color:#727b8a;font-size:
     style="display:inline-block; background:#ff0000; color:white; padding:20px 50px; border-radius:10px; font-size:25px; text-decoration:none;">
     🎮Завантажити гру
     </a>
+</div><div class="fade">
+    <a href="#">Завантажити гру</a>
 </div>
 <section id="play">
   <div class="section-head">
