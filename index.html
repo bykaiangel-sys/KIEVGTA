@@ -34,25 +34,19 @@ footer{padding:30px 6%;border-top:1px solid var(--line);color:#727b8a;font-size:
 </style>
 </div>
 </div>
-</body><audio id="music" loop>
-    <source src="song.mp3" type="audio/mpeg">
+</body>
+</script>
+</body><audio id="music">
+    <source src="music/song.mp3" type="audio/mpeg">
 </audio>
 
-<button onclick="playMusic()">🎵 ON</button>
-<button onclick="stopMusic()">🔇 OFF</button>
+<button onclick="document.getElementById('music').play()">
+🎵 ON
+</button>
 
-<script>
-let music = document.getElementById("music");
-
-function playMusic() {
-    music.play();
-}
-
-function stopMusic() {
-    music.pause();
-}
-</script>
-</body><source src="song.mp3" type="audio/mpeg">
+<button onclick="document.getElementById('music').pause()">
+🔇 OFF
+</button>
 </div>
 </div>
 </style>
