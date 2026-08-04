@@ -239,3 +239,32 @@ body {
 <footer><span>© 2026 KIYV GTA</span><span>MTA:SA Community Project</span></footer>
 </body>
 </html>
+.banner {.banner {
+    height: 400px;
+    background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+    url("images/kyiv.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+
+    animation: citymove 10s infinite alternate;
+}
+
+@keyframes citymove {
+    from {
+        background-position: center;
+    }
+
+    to {
+        background-position: center top;
+    }
+}
